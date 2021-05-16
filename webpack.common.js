@@ -28,8 +28,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.jpg$/,
-        loader: 'file-loader'
+        test: /\.(jpg|png|jpeg|svg)$/,
+        loader: ['file-loader']
       }
     ],
   },
