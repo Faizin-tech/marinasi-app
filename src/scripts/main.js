@@ -12,9 +12,9 @@ navBtn.onclick = ()=> {
 //Event Card Item Menu
 const itemImage = document.querySelectorAll('#itemImage');
 
-itemImage.forEach( async (element) => {
-    console.log('ok');
-    const location = await element.querySelector('.itemLocation')
+itemImage.forEach(  (element) => {
+    
+    const location = element.querySelector('.itemLocation')
     
     element.addEventListener('mouseenter', () => {
         location.classList.toggle('showLocation')
@@ -27,7 +27,7 @@ itemImage.forEach( async (element) => {
 
 const itemCard = document.querySelectorAll('.itemMenu');
 
-itemCard.forEach( async (element) => {
+itemCard.forEach( (element) => {
 
     element.addEventListener('mouseenter', () => {
         element.classList.toggle('up');
