@@ -5,7 +5,7 @@ $mobile: 400px;
 $tablet: 900px;
 
 // warna
-$main: #33ffff;
+$main: #ffc93c;
 
 * {
 	padding: 0;
@@ -68,13 +68,13 @@ html {
 
             &:hover {
                 a {
-                    color: cyan;
+                    color: $main;
                 }
             
                 @media screen and (max-width: $tablet) {
                     border-radius: 5px;
-                    box-shadow: inset 0 0 5px #33ffff,
-                                inset 0 0 10px #66ffff;
+                    box-shadow: inset 0 0 5px $main,
+                                inset 0 0 10px $main;
                 }
             }
             
@@ -85,7 +85,7 @@ html {
                 content: '';
                 height: 2px;
                 width: 100%;
-                background: #33ffff;
+                background: $main;
                 opacity: 0;
                 transition: all 0.2s linear;
             }
@@ -124,7 +124,7 @@ html {
 
             &:hover {
                 a {
-                    color: cyan;
+                    color: $main;
                 }
             }
 
@@ -144,10 +144,91 @@ html {
 // Style Jumbotron
 .hero {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    background-image: url('../public/images/heros/hero-image_4.jpg');
-    min-height: 300px;
-    width: 100%;
-    background-position: center;
-    background-size: cover;
+    padding: 110px 100px;
+    position: relative;
+    justify-content: center;
+    min-height: 80vh;
+    color: #fff;
+    text-align: center;
+    
+    @media screen and (max-width: $tablet) {
+        padding: 100px 50px;
+        min-height: 60vh;
+    }
+
+    @media screen and (max-width: $mobile) {
+        padding: 125px 30px;
+        min-height: 40vh;
+    }
+
+    p {
+        max-width: 800px;
+        text-align: center;
+        margin-bottom: 35px;
+        padding: 0 20px;
+        line-height: 2;
+    }
+
+    h1 {
+        margin-bottom: 15px;
+        font-size: 65px;
+        
+        @media screen and (max-width: $tablet) {
+            font-size: 42px;
+        }
+    }
+
+    h3 {
+        margin-bottom: 40px;
+        font-size: 25px;
+
+        @media screen and (max-width: $tablet) {
+            font-size: 20px;
+        }
+    }
+
+    .heroImage {
+        position: absolute;
+        background-image: url('../public/images/heros/hero-image_4.jpg');
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-position: center;
+        background-size: cover;
+        z-index: -1;
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: .5;
+        }
+    }
+
+    .heroBtn {
+        color: azure;
+        text-decoration: none;
+        padding: 15px 35px;
+        border: 2px solid $main;
+        border-radius: 50px;
+        text-transform: uppercase;
+        transition: all 0.5s linear;
+
+        &:hover {
+            background-color: $main;
+            font-weight: 600;
+            border: 2px solid white;
+        }
+
+        @media screen and (max-width: $tablet) {
+            padding: 15px 40px;
+        }
+    }
 }
