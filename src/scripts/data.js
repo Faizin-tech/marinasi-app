@@ -5,7 +5,7 @@ import ('../DATA.json').then(({default: jsonData}) => {
     let dataList = '';
     datas.forEach((data) => {
         dataList +=`
-        <div class="itemMenu">
+        <a href="#" class="itemMenu">
             <div class="slice itemImage">
                 <span class="itemLocation showLocation"><i class="fas fa-map-marker-alt"></i> ${data['city']}</span>
                 <img src="${data['pictureId']}" alt="${data['name']}" title="${data['name']}">
@@ -23,7 +23,7 @@ import ('../DATA.json').then(({default: jsonData}) => {
                 </div>
                 <div class="slice itemDescription">${data['description'].slice(0, 150)}...</div>
             </div>
-        </div>
+        </a>
             `;
         });
     document.querySelector('#menu').innerHTML = dataList;  

@@ -2,7 +2,7 @@
 
 // ukuran layar
 $mobile: 400px;
-$tablet: 900px;
+$tablet: 1000px;
 
 // warna
 $main: #ffc93c;
@@ -42,7 +42,7 @@ html {
 // Style Navbar
 .nav {
     background-color: #151515;
-    padding: 5px 40px;
+    padding: 5px 150px;
     width: 100%;
     // z-index: 5;
     // position: sticky;
@@ -68,6 +68,12 @@ html {
             font-weight: 600;
             cursor: default;
             user-select: none;
+
+            @media screen and (max-width: $tablet) {
+                position: relative;
+                margin-left: -20.13px;
+                text-align: center;
+            }
         }
 
         .navList {
@@ -82,6 +88,9 @@ html {
 
             a {
                 color: azure;
+                display: inline-block;
+                line-height: 44px;
+                align-items: center;
                 text-decoration: none;
                 font-size: 18px;
             }
@@ -132,11 +141,12 @@ html {
         }
 
         .navBtn {
-            text-align: center;
+            width: 100%;
             cursor: pointer;
             padding: 15px 0;
             font-size: 23px;
             display: none;
+            z-index: 3;
 
             a {
             color: azure;
@@ -150,10 +160,12 @@ html {
 
             &.hiden i:before {
                 content: '\f00d';
+                margin-right: 4.32px;
             }
 
             @media screen and (max-width: $tablet) {
                 display: block;
+                flex: 0;
             }
 
         }
@@ -267,7 +279,7 @@ main {
         .listMenu {
             margin: 30px auto;
             .contentMenu {
-                padding: 30px 40px;
+                padding: 30px 150px;
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px 16px;
@@ -322,17 +334,25 @@ main {
                             text-align: left;
                             
                             .rating {
+                                display: inline-block;
                                 font-size: 14px;
                                 color: $main;
                             }
                         }
                         
                         .itemName {
-                            text-align: left;
+                            h3 {
+                                display: inline-block;
+                                width: 100%;
+                                text-align: left;
+                                color: black;
+                            }
                         }
                         
                         .itemDescription {
                             text-align: left;
+                            display: inline-block;
+                            color: black;
                             max-height: 100px;
                             overflow: hidden;
                             text-overflow: ellipsis;
@@ -347,10 +367,12 @@ main {
                 }
                 
                 @media screen and (max-width: $tablet) {
+                    padding: 30px 30px;
                     grid-template-columns: repeat(2, 1fr);
                 }
                 
                 @media screen and (max-width: $mobile) {
+                    padding: 30px 30px;
                     grid-template-columns: repeat(1, 1fr);
                 }
             }
@@ -364,5 +386,11 @@ footer {
     font-size: 14px;
     padding: 2em;
     width: 100%;
-    text-align: center
+    text-align: center;
+
+    a {
+        display: inline;
+        text-decoration: none;
+        color: azure;
+    }
 }
