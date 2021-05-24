@@ -22,30 +22,3 @@ mainElement.addEventListener("click", event => {
 
 
 //Event Card Item Menu
-const itemImage = document.querySelectorAll('#itemImage');
-
-itemImage.forEach(  (element) => {
-    
-    const location = element.querySelector('.itemLocation')
-    
-    element.addEventListener('mouseenter', () => {
-        location.classList.toggle('showLocation')
-    })
-
-    element.addEventListener('mouseleave', () => {
-        location.classList.toggle('showLocation')
-    })
-})
-
-const itemCard = document.querySelectorAll('.itemMenu');
-
-itemCard.forEach( (element) => {
-
-    element.addEventListener('mouseenter', () => {
-        element.classList.toggle('up');
-    })
-
-    element.addEventListener('mouseleave', () => {
-        element.classList.toggle('up');
-    })
-})

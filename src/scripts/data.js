@@ -7,7 +7,7 @@ import ('../DATA.json').then(({default: jsonData}) => {
         dataList +=`
         <a href="#" class="itemMenu">
             <div class="slice itemImage">
-                <span class="itemLocation showLocation"><i class="fas fa-map-marker-alt"></i> ${data['city']}</span>
+                <span class="itemLocation"><i class="fas fa-map-marker-alt"></i> ${data['city']}</span>
                 <img src="${data['pictureId']}" alt="${data['name']}" title="${data['name']}">
             </div>
             <div class="slice itemContent">
@@ -26,7 +26,24 @@ import ('../DATA.json').then(({default: jsonData}) => {
         </a>
             `;
         });
-    document.querySelector('#menu').innerHTML = dataList;  
+    document.querySelector('#menu').innerHTML = dataList; 
+
+const itemCard = document.querySelectorAll('.itemMenu');
+
+itemCard.forEach( (element) => {
+
+    const location = element.querySelector('.itemLocation')
+
+    element.addEventListener('mouseenter', () => {
+        element.classList.toggle('up');
+        location.classList.toggle('showLocation');
+    })
+
+    element.addEventListener('mouseleave', () => {
+        element.classList.toggle('up');
+        location.classList.toggle('showLocation');
+    })
+})
 
 });
 
