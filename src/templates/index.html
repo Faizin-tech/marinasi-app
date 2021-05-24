@@ -11,9 +11,23 @@
 <body>
     <a href="#content" class="skip-link">Skip to content ?</a>
     <!-- Navbar Desktop -->
-    <nav class="nav">
+
+    <nav class="mobile-nav">
+        <a id="hamburger" href="#">☰</a>
+    </nav>
+
+    <nav class="nav" id="mobile">
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li><a href="https://github.com/FaisITApps">About Us</a></li>
+        </ul>
+    </nav>
+
+
+    <nav class="nav" id="desktop">
         <ul class="navMenu">
-            <li class="navBtn"><a href="#"><i class="fas fa-bars"></i></a></li>
+            <li class="navBtn"><a href="#"><i class="fas fa-bars"></i></a></li> -->
             <li class="navLogo">Marinasi</li>
             <li class="navList"><a href="">Home</a></li>
             <li class="navList"><a href="#">Favorites</a></li>
@@ -21,13 +35,14 @@
         </ul>
     </nav>
 
+
     <!-- Jumbotron -->
-    <div class="hero">
+    <main class="hero">
         <div class="heroImage"></div>
         <h1>Marinasi App</h1>
         <h3>Makan Apa Hari Ini?</h3>
         <a href="#content" class="heroBtn">Cari Disini!</a>
-    </div>
+    </main>
 
     <!-- Content -->
     <main>
@@ -39,7 +54,9 @@
 
     <!-- Footer -->
     <footer id="footer">
-        <p>Copyright © 2021 - <a href="#">Marinasi App</a></p>
+        <div class="content-footer">
+            <p>Copyright © 2021 - <a href="#">Marinasi App</a></p>
+        </div>
     </footer>
 </body>
 

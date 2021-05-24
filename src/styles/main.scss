@@ -39,22 +39,99 @@ html {
     }
 }
 
+#mobile {
+    width: 250px;
+    height: 100%;
+    position: absolute;
+    /* menyembunyikan #drawer -250px (sesuai dengan ukuran lebar drawer) ke kiri */
+    transform: translate(-250px, 0);
+    transition: transform 0.3s ease-in-out;
+    background-color:#111;
+    z-index: 5;
+    opacity: 0.9;
+    display: none;
+
+    &.open {
+        transform: translate(0,0)
+    }
+
+    @media screen and (max-width: $tablet) {
+        padding-top: 30px;
+        display: block;
+    }
+
+
+    ul {
+        list-style-type: none;
+        padding: 0 16px;
+
+        li {
+            padding: 5px 0px;
+            a {
+                display: inline-block;
+                text-decoration: none;
+                font-size: 25px;
+                min-width: 44px;
+                min-height: 44px;
+                color: white;
+            }
+
+            &:hover {
+                a {
+                    color: $main;
+                }
+            }
+        }
+    }
+}
+
+.mobile-nav {
+    padding: 5px 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    position: absolute;
+    z-index: 3;
+    display: none;
+    
+    @media screen and (max-width: $tablet) {
+        display: block;
+    }
+    
+    #hamburger {
+        font-size: 32px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: $main;
+        display: inline-block;
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+
 // Style Navbar
 .nav {
     background-color: #151515;
     padding: 5px 150px;
     width: 100%;
-    // z-index: 5;
-    // position: sticky;
-    // top: 0;
 
     @media screen and (max-width: $tablet) {
         padding: 5px 30px;
+        display: none;
     }
+
+    &.open {
+        transform: translate(0,0)
+    }
+
     
     .navMenu {
 
         list-style: none;
+        padding: 0 16px;
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -141,7 +218,7 @@ html {
         }
 
         .navBtn {
-            width: 100%;
+            width: 44px;
             cursor: pointer;
             padding: 15px 0;
             font-size: 23px;
@@ -387,9 +464,12 @@ footer {
     padding: 2em;
     width: 100%;
     text-align: center;
+    align-content: center;
 
     a {
-        display: inline;
+        display: inline-block;
+        min-width: 44px;
+        min-height: 44px;
         text-decoration: none;
         color: azure;
     }
