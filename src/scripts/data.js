@@ -1,6 +1,5 @@
 
 import ('../DATA.json').then(({default: jsonData}) => {
-    console.log(jsonData)
     let datas = jsonData['restaurants']
     let dataList = '';
     datas.forEach((data) => {

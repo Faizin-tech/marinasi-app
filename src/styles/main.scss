@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 // ukuran layar
-$mobile: 400px;
+$mobile: 450px;
 $tablet: 1000px;
 
 // warna
@@ -86,7 +86,7 @@ html {
 }
 
 .mobile-nav {
-    padding: 5px 30px;
+    padding: 20px 30px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -291,7 +291,7 @@ html {
         }
     }
 
-    h3 {
+    h2 {
         margin-bottom: 40px;
         font-size: 25px;
         text-shadow: 1px 1px 2px black;
@@ -428,11 +428,13 @@ main {
                         
                         .itemDescription {
                             text-align: left;
-                            display: inline-block;
                             color: black;
                             max-height: 100px;
                             overflow: hidden;
                             text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 3; /* number of lines to show */
+                            -webkit-box-orient: vertical;
                         }
                     }
 
