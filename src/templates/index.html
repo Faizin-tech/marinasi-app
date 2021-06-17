@@ -13,45 +13,32 @@
     <a href="#content" class="skip-link">Skip to content ?</a>
     <!-- Navbar Desktop -->
 
-    <nav class="mobile-nav">
-        <a id="hamburger" href="#">☰</a>
-    </nav>
-
-    <nav class="nav" id="mobile">
-        <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="#">Favorites</a></li>
-            <li><a href="https://github.com/FaisITApps">About Us</a></li>
-        </ul>
-    </nav>
-
-
-    <nav class="nav" id="desktop">
-        <ul class="navMenu">
-            <li class="navBtn"><a href="#"><i class="fas fa-bars"></i></a></li> -->
-            <li class="navLogo">Marinasi</li>
-            <li class="navList"><a href="">Home</a></li>
-            <li class="navList"><a href="#">Favorites</a></li>
-            <li class="navList"><a href="https://github.com/FaisITApps">About Us</a></li>
-        </ul>
-    </nav>
-
+    <header class="app-bar">
+        <div class="app-bar-menu">
+            <button id="hamburgerButton">☰</button>
+        </div>
+        <div class="app-bar-brand">
+            <h1>Marinasi Apps</h1>
+        </div>
+        <nav id="navigationDrawer" class="app-bar-navigation">
+            <ul>
+                <li><a href="#/">Home</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="https://github.com/FaisITApps">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Jumbotron -->
-    <main class="hero">
+    <!-- <div class="content">
         <div class="heroImage"></div>
         <h1>Marinasi App</h1>
         <h2>Makan Apa Hari Ini?</h2>
         <a href="#content" class="heroBtn">Cari Disini!</a>
-    </main>
+    </div> -->
 
     <!-- Content -->
-    <main>
-        <section class="listMenu" id="content">
-            <h2>Explore Restaurant</h2>
-            <div class="contentMenu" id="menu"></div>
-        </section>
-    </main>
+    <main id="content"></main>
 
     <!-- Footer -->
     <footer id="footer">
