@@ -1,11 +1,10 @@
 /* eslint-disable linebreak-style */
 import ListResto from '../views/pages/list-resto'
+import RestoDetail from '../views/pages/resto-detail'
 
 const routes = {
-  '/': ListResto // default page
-  // '/now-playing': NowPlaying,
-  // '/upcoming': Upcoming,
-  // '/detail/:id': Detail,
+  '/': ListResto, // default page
+  '/detail/:id': RestoDetail
   // '/likes': Like,
 }
 

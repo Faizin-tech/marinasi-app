@@ -14,6 +14,10 @@ $main: #ffc93c;
 	font-family: 'Quicksand', sans-serif
 }
 
+::-webkit-scrollbar {
+    width: 0;
+}
+
 body,
 html {
     margin: 0;
@@ -57,7 +61,12 @@ html {
     z-index: 99;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 
-    @media screen and (max-width: $mobile) {
+    @media screen and (min-width: $tablet) {
+        grid-template-columns: 1fr auto;
+        padding: 8px 150px;
+    }
+
+    @media screen and (max-width: $tablet) {
         grid-template-columns: 1fr auto;
         padding: 8px 32px;
     }
@@ -66,7 +75,7 @@ html {
         display: flex;
         align-items: center;
 
-        @media screen and (min-width: 650px) {
+        @media screen and (min-width: $tablet) {
             display: none;
         }
 
@@ -77,6 +86,9 @@ html {
             padding: 8px;
             cursor: pointer;
             color: $main;
+            z-index: 100;
+            min-width: 44px;
+            min-height: 44px;
         }
     }
 
@@ -84,17 +96,25 @@ html {
         display: flex;
         align-items: center;
 
+        @media screen and (max-width: $tablet) {
+            position: absolute;
+            width: 100%;
+            margin: 15px auto;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
         h1 {
             color: white;
             text-transform: uppercase;
             font-size: 22px;
             user-select: none;
 
-            @media screen and (min-width: 650px) {
-                font-size: 1.5em;
+            @media screen and (min-width: $mobile) {
+                font-size: 2em;
             }
 
-            @media screen and (min-width: 800px) {
+            @media screen and (min-width: $tablet) {
                 font-size: 2em;
             }
         }
@@ -107,22 +127,28 @@ html {
         width: 150px;
         transition: all 0.3s;
         padding: 8px;
-        background-color: transparent;
+        background-color: #151515;
         overflow: hidden;
-
-        @media screen and (min-width: 650px) {
+        
+        @media screen and (min-width: $tablet) {
+            background-color: transparent;
             position: static;
             width: 100%;
         }
 
         &.open {
             left: 0;
+            background-color: black;
+            opacity: 80%;
         }
 
         ul {
             li {
+                position: relative;
+                transition: all 0.5s linear;
+                order: 3;
 
-                @media screen and (min-width: 650px) {
+                @media screen and (min-width: $tablet) {
                     display: inline-block;
                 }
 
@@ -132,15 +158,44 @@ html {
                     color: $main;
                     padding: 8px;
                     min-height: 44px;
-                    margin-bottom: 5px;
                     width: 100%;
                     font-size: 18px;
 
-                    @media screen and (min-width: 650px) {
+                    @media screen and (min-width: $tablet) {
                         display: inline-block;
                         width: 120px;
                         text-align: center;
                         margin: 0;
+                    }
+                }
+
+                &:hover {
+                    border-radius: 5px;
+
+                    @media screen and (max-width: $tablet) {
+                        border-radius: 5px;
+                        box-shadow: inset 0 0 5px $main,
+                                    inset 0 0 10px $main;
+                    }
+                }
+
+                &:after {
+                    position: absolute;
+                    left: 0;
+                    bottom: 10px;
+                    content: '';
+                    height: 2px;
+                    width: 100%;
+                    background: $main;
+                    opacity: 0;
+                    transition: all 0.2s linear;
+                }
+
+                &:hover:after {
+                    opacity: 1;
+                    bottom: 9px;
+                    @media screen and (max-width: $tablet) {
+                        opacity: 0;
                     }
                 }
             } 
@@ -156,12 +211,13 @@ html {
     padding: 110px 100px;
     position: relative;
     justify-content: center;
-    min-height: 80vh;
+    // min-height: 80vh;
     color: azure;
     text-align: center;
     border: 1px solid black;
     
     @media screen and (max-width: $tablet) {
+        margin-top: -56px;
         padding: 100px 50px;
         min-height: 60vh;
     }
@@ -170,6 +226,66 @@ html {
         padding: 125px 30px;
         min-height: 40vh;
     }
+
+    .searchContent {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        width: 70%;
+
+        @media screen and (max-width: $tablet) {
+            grid-template-columns: 80% 20%;
+            width: 100%;
+        }
+        
+        input[type=text] {
+            box-sizing: border-box;
+            border: 2px solid $main;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-right-style: none;
+            font-size: 16px;
+            background-color: white;
+            opacity: 90%;
+            background-position: 10px 10px; 
+            background-repeat: no-repeat;
+            padding: 12px 10px 12px 15px;
+            transition: width 0.5s linear;
+
+            @media screen and (max-width: $tablet) {
+                padding: 15px 8px;
+                background-image: none;
+            }
+        }
+
+        .heroBtn {
+            color: azure;
+            text-decoration: none;
+            padding: 15px 35px;
+            border: 2px solid $main;
+            border-top-right-radius: 50px;
+            border-bottom-right-radius: 50px;
+            background-color: $main;
+            text-transform: uppercase;
+            transition: all 0.5s linear;
+            box-shadow: 1px 1px 2px black;
+            content: 'Cari';
+    
+            &:hover {
+                background-color: #151515;
+                color: $main;
+                font-weight: 600;
+                border: 2px solid $main;
+            }
+    
+            @media screen and (max-width: $tablet) {
+                padding: 15px 15px;
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
+            }
+            
+        }
+    }
+
 
     p {
         max-width: 800px;
@@ -223,26 +339,6 @@ html {
         }
     }
 
-    .heroBtn {
-        color: azure;
-        text-decoration: none;
-        padding: 15px 35px;
-        border: 2px solid $main;
-        border-radius: 50px;
-        text-transform: uppercase;
-        transition: all 0.5s linear;
-        box-shadow: 1px 1px 2px black;
-
-        &:hover {
-            background-color: $main;
-            font-weight: 600;
-            border: 2px solid white;
-        }
-
-        @media screen and (max-width: $tablet) {
-            padding: 15px 40px;
-        }
-    }
 }
 
 // style main content
@@ -267,7 +363,6 @@ main {
                     border: 2px solid #393232;
                     border-radius: 5px;
                     padding: 1px;
-                    cursor: pointer;
                     max-height: 600px;
                     
                     .itemImage {
@@ -318,12 +413,15 @@ main {
                         }
                         
                         .itemName {
-                            h3 {
-                                display: inline-block;
-                                width: 100%;
-                                text-align: left;
-                                color: black;
-                            }
+                            color: black;
+                            text-align: left;
+                            font-weight: 800;
+                            font-size: 18px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            display: -webkit-box;
+                            -webkit-line-clamp: 1; /* number of lines to show */
+                            -webkit-box-orient: vertical;
                         }
                         
                         .itemDescription {
@@ -336,6 +434,38 @@ main {
                             -webkit-line-clamp: 3; /* number of lines to show */
                             -webkit-box-orient: vertical;
                         }
+
+                        #itemCTA {
+                            border: 2px solid $main;
+                            border-radius: 2px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: all 0.5s linear;
+                            
+                            a {
+                                display: inline-block;
+                                width: 100%;
+                                font-size: 20px;
+                                font-weight: 800;
+                                color: $main;
+                                text-decoration: none;
+                                padding: 8px;
+                                min-height: 44px;
+                                min-width: 44px;
+                                text-align: center;
+                                cursor: pointer;
+                            }
+
+                            &:hover {
+                                background-color: $main;
+                                border-color: azure;
+                                a {
+                                    color: azure;
+                                }
+                            }
+                        }
+
                     }
 
                     &.up {
@@ -356,6 +486,222 @@ main {
                 }
             }
         }
+}
+
+// style detail page
+.container-detail {
+    width: 100%;
+
+    #loading {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #detailResto {
+        @media screen and (min-width: $tablet) {
+            padding: 8px 150px;
+        }
+    
+        @media screen and (max-width: $tablet) {
+            padding: 8px 32px;
+        }
+
+        .breadcrumb {
+            text-align: left;
+            padding-bottom: 20px;
+
+            .breadcrumb-list {
+                color: $main;
+                a {
+                    text-decoration: none;
+                    font-size: 16px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    color: $main;
+                }
+            }
+        }
+
+        .detail-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            .detail-image {
+                
+                img {
+                    border-radius: 10px;
+                    width: 100%;
+                    height: 60vh;
+                    object-fit: cover;
+                }
+            }
+            
+            .detail-card-info-general {
+                border: 3px solid white;
+                border-bottom: none;
+                border-radius: 20px;
+                background-color: #151515;
+                color: $main;
+                margin: -40px auto 0 auto;
+                width: 70%;
+                max-width: 650px;
+                padding: 10px 20px;
+                text-align: center;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                @media screen and (max-width: 650px) {
+                    width: 100%;
+                }
+
+                .left-info {
+                    h3 {
+                        font-size: 20px;
+                    }
+    
+                    .detail-address {
+                        font-size: 14px;
+                    }
+
+                    @media screen and (max-width: 650px) {
+
+                        h3 {
+                            font-size: 14px;
+                        }
+        
+                        .detail-address {
+                            font-size: 8px;
+                        }
+                    }
+                }
+
+                .right-info {
+                    align-items: center;
+                    font-size: 30px;
+                    font-weight: 800;
+
+                    @media screen and (max-width: 650px) {
+                        font-size: 20px;
+                    }
+                }
+
+            }
+
+            .kategori-menu {
+                margin-top: 10px;
+                margin-left: 0;
+                display: grid;
+                grid-template-columns: auto 1fr;
+                
+
+                h2 {
+                    display: inline-block;
+                    padding-top: 10px;
+                    font-size: 30px;
+                }
+
+                #menu-kategori {
+                    margin-top: 10px;
+                    width: 100%;
+                    display: flex;
+
+                    .item-kategori {
+                        // border: 1px solid #151515;
+                        background-color: $main;
+                        border-radius: 50px;
+                        margin: 0 10px;
+                        padding: 8px 20px;
+                        font-size: 18px;
+                        color: #151515;
+                        text-decoration: none;
+
+                        a {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .item-menu {
+                margin-top: 30px;
+                margin-bottom: 30px;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: 10px;
+                
+                .list-card {
+                    // border: 2px solid $main;
+
+                    .list-title {
+                        
+                        border: 2px solid $main;
+                        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                        padding: 10px;
+
+                        h2 {
+                            font-size: 30px;
+                        }
+                    }
+        
+
+                    .list-body {
+                        max-height: 400px;
+                        overflow: auto;
+
+                        .list-item {
+                            display: grid;
+                            grid-template-columns: auto 1fr auto;
+                            padding: 8px;
+                            border: 2px solid $main;
+                            margin: 10px 0;
+
+                            &:hover {
+                                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                            }
+
+                            .item-icon {
+                                img {
+                                    height: 50px;
+                                }
+                            }
+
+                            .item-title {
+                                display: flex;
+                                align-items: center;
+                                margin-left: 10px;
+                                font-size: 20px;
+                                font-weight: 700;
+                            }
+
+                            .item-order {
+                                padding: 10px 20px;
+                                background-color: $main;
+                                display: flex;
+                                align-items: center;
+                                cursor: pointer;
+                                
+                                a {
+                                    font-size: 20px;
+                                    color: azure;
+                                    text-decoration: none;
+                                }
+
+                                &:hover {
+                                    background-color: #151515;
+                                }
+                            }
+                        }
+
+                    }
+                        
+                }
+
+            }
+        }
+    }
 }
 
 // footer

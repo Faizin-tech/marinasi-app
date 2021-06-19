@@ -12,10 +12,12 @@ const app = new App({
 })
 
 window.addEventListener('hashchange', () => {
+  window.scrollTo(0, 0)
   app.renderPage()
 })
 
 window.addEventListener('load', () => {
+  window.scrollTo(0, 0)
   app.renderPage()
 //   swRegister()
 //   WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER)

@@ -4,7 +4,6 @@ class TheRestoSource {
   static async listResto () {
     const response = await fetch(API_ENDPOINT.LIST)
     const responseJson = await response.json()
-    console.log(responseJson)
     return responseJson
   }
 }
