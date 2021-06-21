@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
 import UrlParser from '../../routes/url-parser'
 import TheRestoSource from '../../data/restourant-source'
+import LikeButtonInitiator from '../../utils/like-button-initiator'
 
 const RestoDetail = {
   async render () {
     return `
             <section class="container-detail">
                 <div id="loading"><img src="./images/loading.svg" alt="Loading..." loading="lazy"></div>
-                <div id="detailResto">
-
-                </div>
+                <div id="detailResto"></div>
+                <div id="likeButtonContainer"></div>
             </section>
         `
   },
@@ -144,7 +144,7 @@ const RestoDetail = {
                     <div class="review-box">
                         <input type="text" name="name" id="reviewName" placeholder="Nama kamu...">
                         <textarea name="review" id="reviewValue" rows="5" placeholder="Tulis review kamu disini..."></textarea><br>
-                        <div style="font-size:12px; color: red;" id="errorReview"></div>
+                        <div style="font-size:14px; color: red;" id="errorReview"></div>
                         <button class="btn-kirim" id="kirimReview">Kirim Review</button>
                     </div>
                 </div>
@@ -172,6 +172,18 @@ const RestoDetail = {
           document.querySelector('#errorReview').innerHTML = 'Harap lengkapi semua input terlebih dahulu !'
         }
       }
+
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        resto: {
+          id: url.id,
+          name: restoInfo.restaurant.name,
+          description: restoInfo.restaurant.description,
+          pictureId: restoInfo.restaurant.pictureId,
+          rating: restoInfo.restaurant.rating,
+          city: restoInfo.restaurant.city
+        }
+      })
     } else {
       detail.innerHTML += errorPage
     }

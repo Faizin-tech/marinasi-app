@@ -25,7 +25,20 @@ const createListRestourants = (resto) => `
     </div>
 
 `
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this resto" id="likeButton" class="like">
+     <i class="fa fa-heart" aria-hidden="true"></i>
+  </button>
+`
+
+const createLikedButtonTemplate = () => `
+  <button aria-label="unlike this resto" id="likeButton" class="like">
+    <i class="fa fa-trash" aria-hidden="true"></i>
+  </button>
+`
 
 export {
-  createListRestourants
+  createListRestourants,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate
 }

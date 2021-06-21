@@ -3,7 +3,7 @@
 import 'regenerator-runtime'/* for async await transpile */
 import App from './views/app'
 import '../styles/main.scss'
-import CONFIG from './global/config'
+import swRegister from './utils/sw-register'
 
 const app = new App({
   button: document.querySelector('#hamburgerButton'),
@@ -19,6 +19,5 @@ window.addEventListener('hashchange', () => {
 window.addEventListener('load', () => {
   window.scrollTo(0, 0)
   app.renderPage()
-//   swRegister()
-//   WebSocketInitiator.init(CONFIG.WEB_SOCKET_SERVER)
+  swRegister()
 })

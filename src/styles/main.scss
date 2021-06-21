@@ -26,6 +26,31 @@ html {
     min-height: 100vh;
 }
 
+  /*
+   Like
+*/
+.like {
+    font-size: 18px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background-color: #151515;
+    color: white;
+    border: 0 $main;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    i {
+        color: azure;
+        fill: transparent;
+    }
+}
+
 input:focus, textarea:focus, select:focus{
     outline: none;
 }

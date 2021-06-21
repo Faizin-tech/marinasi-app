@@ -41,8 +41,10 @@
   },
   "dependencies": {
     "file-loader": "^6.2.0",
+    "idb": "^6.1.2",
     "regenerator-runtime": "^0.13.5",
     "sass": "^1.32.13",
-    "sass-loader": "^10.1.1"
+    "sass-loader": "^10.1.1",
+    "serviceworker-webpack-plugin": "^1.0.1"
   }
 }
