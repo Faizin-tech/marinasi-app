@@ -940,14 +940,15 @@ main {
 footer {
     background-color: $main;
     color: azure;
-    font-size: 14px;
     padding: 2em;
     width: 100%;
     text-align: center;
     align-content: center;
-
+    
     a {
-        display: inline-block;
+        font-size: 14px;
+        display: inline-flex;
+        align-items: center;
         min-width: 44px;
         min-height: 44px;
         text-decoration: none;
