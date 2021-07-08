@@ -26,6 +26,14 @@ html {
     min-height: 100vh;
 }
 
+.offline {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20%;
+}
+
   /*
    Like
 */

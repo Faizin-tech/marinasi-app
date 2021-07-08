@@ -1,7 +1,7 @@
 import DrawerInitiator from '../utils/drawer-initiator'
 import UrlParser from '../routes/url-parser'
 import routes from '../routes/routes'
-
+import { offlineCondition } from './templates/template-creator'
 class App {
   constructor ({ button, drawer, content }) {
     this._button = button
@@ -19,10 +19,14 @@ class App {
     })
   }
 
-  async renderPage () {
+  async renderPage (online) {
     const url = UrlParser.parseActiveWithCombiner()
     const page = routes[url]
-    this._content.innerHTML = await page.render()
+    if (online === true) {
+      this._content.innerHTML = await page.render()
+    } else {
+      this._content.innerHTML = offlineCondition
+    }
     await page.afterRender()
   }
 }

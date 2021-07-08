@@ -102,7 +102,7 @@ const RestoDetail = {
         </div>
         <div class="detail-body">
             <div class="detail-image">
-                <img src="https://restaurant-api.dicoding.dev/images/large/${restoInfo.restaurant.pictureId}" alt="${restoInfo.restaurant.name}" title="${restoInfo.restaurant.name}">
+                <img class="lazyload" src="https://restaurant-api.dicoding.dev/images/large/${restoInfo.restaurant.pictureId}" alt="${restoInfo.restaurant.name}" title="${restoInfo.restaurant.name}">
             </div>
             <div class="detail-card-info-general">
                 <div class="left-info">
