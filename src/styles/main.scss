@@ -360,7 +360,7 @@ input:focus, textarea:focus, select:focus{
 
     .heroImage {
         position: absolute;
-        background-image: url('../public/images/heros/hero-image_4.jpg');
+        background-image: url('../public/images/heros/hero-image_4-min.jpg');
         width: 100%;
         height: 100%;
         top: 0;
@@ -369,6 +369,10 @@ input:focus, textarea:focus, select:focus{
         background-attachment: fixed;
         background-size: cover;
         z-index: -1;
+
+        @media (min-width: $mobile) {
+            background-image: url('../public/images/heros/hero-image_4.jpg');
+        }
 
         &:after {
             content: '';

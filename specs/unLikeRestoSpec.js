@@ -13,7 +13,7 @@ describe('Unlike a Restaurant', () => {
   })
 
   // Harusnya tombol unlike tampil
-  it('harusnya menampilkan tombol batal suka', async () => {
+  it('Shoul show then unlike button when the restouran has been unlike before', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       resto: {
@@ -23,7 +23,7 @@ describe('Unlike a Restaurant', () => {
     expect(document.querySelector('[aria-label="unlike this resto"]')).toBeTruthy()
   })
 
-  it('harusnya berhasil menekan tombol batal suka', async () => {
+  it('Should be able to unlike a restourant', async () => {
     await LikeButtonInitiator.init({
       likeButtonContainer: document.querySelector('#likeButtonContainer'),
       resto: {

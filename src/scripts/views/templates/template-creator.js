@@ -5,8 +5,8 @@ const createListRestourants = (resto) => `
         <div class="slice itemImage">
             <span class="itemLocation"><i class="fas fa-map-marker-alt"></i> ${resto.city}</span>
             <picture>
-                <source media="(max-width: 450px)" srcset="${CONFIG.BASE_IMAGE_URL}/small/${resto.pictureId}">
-                <img src="${CONFIG.BASE_IMAGE_URL}/medium/${resto.pictureId}" class="lazyload" alt="${resto.name}" title="${resto.name}">
+                <source media="(max-width: 450px)" data-srcset="${CONFIG.BASE_IMAGE_URL}/small/${resto.pictureId}">
+                <img data-src="${CONFIG.BASE_IMAGE_URL}/medium/${resto.pictureId}" class="lazyload" alt="${resto.name}" title="${resto.name}">
             </picture>
         </div>
         <div class="slice itemContent">
